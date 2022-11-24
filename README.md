@@ -5,7 +5,8 @@
 # Installation
 
 ```
-pip intall nltk
+pip install --user -U nltk
+pip install numpy
 pip install cryptocompare
 ```
 
@@ -13,4 +14,4 @@ pip install cryptocompare
 
 # Methodology
 
- #Visualization
+# Visualization
