@@ -1,16 +1,16 @@
 # DSCI510_Final
 
-#Dependencies
+# Dependencies
 
-#Installation
+# Installation
 
-'''
+```
 pip intall nltk
 pip install cryptocompare
-'''
+```
 
-#Running the project
+# Running the project
 
-#Methodology
+# Methodology
 
-#Visualization
+ #Visualization
