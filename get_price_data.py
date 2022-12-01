@@ -9,7 +9,7 @@ cryptocompare_API_key = '3f8819922143abe2f04aa3bb17a5be7adc323aa3676690c505c1d82
 # Set the API key in the cryptocompare object
 cryptocompare.cryptocompare._set_api_key_parameter(cryptocompare_API_key)
 
-def get_price_data(ticket):
+def get_price_data(ticker):
     '''
     This function takes in a ticker and returns a dataframe with the price data, volume data and market cap data
     in order to do statistical analysis on the data
@@ -25,7 +25,7 @@ def get_price_data(ticket):
 
     '''
 # Fetch the raw price data
-    ticker_symbol = ticket
+    ticker_symbol = ticker
     currency = 'USD'
     limit_value = 2000
     exchange_name = 'CCCAGG'
@@ -51,7 +51,8 @@ def get_price_data(ticket):
         '%Y-%m-%d')
     
     # write to csv
-    hourly_price_data.to_csv(ticket + '_price.csv')
+    path = str('./data/price_data') + '/' + str(ticker) + '_price.csv'
+    hourly_price_data.to_csv(path)
 
     # Preview the last 5 values of the the first 7 columns of the DataFrame
     hourly_price_data.iloc[:, :6].head()
@@ -71,8 +72,8 @@ def get_price_data(ticket):
 
 if __name__ == '__main__':
     # get_price_data('BTC')
-    get_price_data('ETH')
-    get_price_data('SOL')
-    get_price_data('BNB')
-    get_price_data('FTT')
-    # get_price_data('ADA')
+    # get_price_data('ETH')
+    # get_price_data('SOL')
+    # get_price_data('BNB')
+    # get_price_data('FTT')
+    get_price_data('DOGE')

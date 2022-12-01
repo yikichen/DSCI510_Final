@@ -15,7 +15,7 @@ model = AutoModelForSequenceClassification.from_pretrained(MODEL)
 
 def sentiment_analysis(subreddit, content):
     sns.set(style='darkgrid', context='talk', palette='Dark2')
-    df = pd.read_csv(subreddit + '_' + content + '_titles.csv',header=0)
+    df = pd.read_csv('./data/reddit_data/'+subreddit + '_' + content + '_titles.csv',header=0)
     results = []
 
     for i in range(len(df)):
@@ -31,10 +31,11 @@ def sentiment_analysis(subreddit, content):
     df['label'] = 0
     df.loc[df['compound'] > 0, 'label'] = 1
     df.loc[df['compound'] < -0, 'label'] = -1
-    df.to_csv( subreddit +'_'+ content +'_sentiment.csv', mode='w', encoding='utf-8', index=False)
+    path = './data/senti_analysis/nltk_vader/' + subreddit + '_' + content + '_sentiment.csv'
+    df.to_csv(path, mode='w', encoding='utf-8', index=False)
 
 def transformer_sentiment_analysis(subreddit, content):
-    df = pd.read_csv(subreddit + '_' + content + '_titles.csv',header=0)
+    df = pd.read_csv('./data/reddit_data/'+subreddit + '_' + content + '_titles.csv',header=0)
     results = []
     # Run for Roberta Model
     for i in range(len(df)):
@@ -59,7 +60,8 @@ def transformer_sentiment_analysis(subreddit, content):
     df['label'] = 0
     df.loc[df['compound'] > 0, 'label'] = 1
     df.loc[df['compound'] < -0, 'label'] = -1
-    df.to_csv( subreddit +'_'+ content +'trans_sentiment.csv', mode='w', encoding='utf-8', index=False)
+    path = './data/senti_analysis/transformer_sentiment/' + subreddit + '_' + content + 'trans_sentiment.csv'
+    df.to_csv( path, mode='w', encoding='utf-8', index=False)
 
 
 
@@ -83,10 +85,10 @@ if __name__ == '__main__':
     # transformer_sentiment_analysis('ethereum',content1)
     # transformer_sentiment_analysis('cryptocurrency',content1)
     # transformer_sentiment_analysis('solana',content1)
-    # transformer_sentiment_analysis('binance',content1)
+    transformer_sentiment_analysis('binance',content1)
 
-    transformer_sentiment_analysis('bitcoin',content2)
+    # transformer_sentiment_analysis('bitcoin',content2)
     # transformer_sentiment_analysis('ethereum',content2)
-    transformer_sentiment_analysis('cryptocurrency',content2)
+    # transformer_sentiment_analysis('cryptocurrency',content2)
 
 

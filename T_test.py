@@ -2,7 +2,7 @@ import pandas as pd
 import scipy.stats as stats
 import datetime as dt
 
-def t_test(subreddit1, subreddit2,content, start_date, end_date):
+def t_test_vader(subreddit1, subreddit2,content, start_date, end_date):
     '''
     This function is to do the t-test
     T-test is to compare the means of two groups to determine whether there is statistical significance between the two groups
@@ -16,15 +16,17 @@ def t_test(subreddit1, subreddit2,content, start_date, end_date):
         t-test result
     
     '''
-    df1 = pd.read_csv(subreddit1 + '_'+ content + '_sentiment.csv',header=0)
-    df2 = pd.read_csv(subreddit2 + '_'+ content + '_sentiment.csv',header=0)
+    path1 = './data/senti_analysis/nltk_vader/' + subreddit1 + '_' + content + '_sentiment.csv'
+    path2 = './data/senti_analysis/nltk_vader/' + subreddit2 + '_' + content + '_sentiment.csv'
+    df1 = pd.read_csv(path1,header=0)
+    df2 = pd.read_csv(path2,header=0)
     df1 = df1[df1['time'] >= start_date]
     df1 = df1[df1['time'] <= end_date]
     df2 = df2[df2['time'] >= start_date]
     df2 = df2[df2['time'] <= end_date]
     t, p = stats.ttest_ind(df1['label'], df2['label'])
     # t, p = stats.ttest_ind(df1['compound'], df2['compound'])
-    print('t-test for ' + subreddit1 + ' and ' + subreddit2 + ' on ' + content + ' sentiment')
+    print('t-test for ' + subreddit1 + ' and ' + subreddit2 + ' on ' + content + 'nltk vader sentiment')
     print('from ' + dt.datetime.fromtimestamp(start_date).strftime('%Y-%m-%d') + ' to ' + dt.datetime.fromtimestamp(end_date).strftime('%Y-%m-%d'))
     print('t = ' + str(t))
     print('p = ' + str(p))
@@ -46,15 +48,17 @@ def t_test_trans(subreddit1, subreddit2,content, start_date, end_date):
         t-test result
     
     '''
-    df1 = pd.read_csv(subreddit1 + '_'+ content + 'trans_sentiment.csv',header=0)
-    df2 = pd.read_csv(subreddit2 + '_'+ content + 'trans_sentiment.csv',header=0)
+    path1 = './data/senti_analysis/transformer_sentiment/' + subreddit1 + '_' + content + 'trans_sentiment.csv'
+    path2 = './data/senti_analysis/transformer_sentiment/' + subreddit2 + '_' + content + 'trans_sentiment.csv'
+    df1 = pd.read_csv(path1,header=0)
+    df2 = pd.read_csv(path2,header=0)
     df1 = df1[df1['time'] >= start_date]
     df1 = df1[df1['time'] <= end_date]
     df2 = df2[df2['time'] >= start_date]
     df2 = df2[df2['time'] <= end_date]
     # t, p = stats.ttest_ind(df1['label'], df2['label'])
     t, p = stats.ttest_ind(df1['compound'], df2['compound'])
-    print('t-test for ' + subreddit1 + ' and ' + subreddit2 + ' on ' + content + ' sentiment')
+    print('t-test for ' + subreddit1 + ' and ' + subreddit2 + ' on ' + content + 'transformer sentiment')
     print('from ' + dt.datetime.fromtimestamp(start_date).strftime('%Y-%m-%d') + ' to ' + dt.datetime.fromtimestamp(end_date).strftime('%Y-%m-%d'))
     print('t = ' + str(t))
     print('p = ' + str(p))
@@ -66,19 +70,19 @@ if __name__ == '__main__':
     content2 = 'all'
     start_date = dt.datetime(2022, 11, 11).timestamp()
     end_date = dt.datetime(2022, 11, 23).timestamp()
-    # t_test('bitcoin', 'ethereum',content1, start_date, end_date)
-    t_test_trans('bitcoin', 'cryptocurrency',content1,start_date,end_date)
-    # t_test('bitcoin', 'cryptocurrency',content2,start_date,end_date)
+    # t_test_vader('bitcoin', 'ethereum',content1, start_date, end_date)
+    # t_test_trans('bitcoin', 'cryptocurrency',content1,start_date,end_date)
+    # t_test_vader('bitcoin', 'cryptocurrency',content2,start_date,end_date)
 
-    # t_test('bitcoin', 'solana',content1,start_date,end_date)
-    # t_test('bitcoin', 'binance',content1,start_date,end_date)
-    # t_test('ethereum', 'cryptocurrency')
-    # t_test('ethereum', 'solana')
-    # t_test('ethereum', 'binance')
-    # t_test('cryptocurrency', 'solana')
-    # t_test('cryptocurrency', 'binance')
-    # t_test('solana', 'binance')
-    t_test('bitcoin', 'cryptocurrency',content2,start_date,end_date)
+    # t_test_vader('bitcoin', 'solana',content1,start_date,end_date)
+    # t_test_vader('bitcoin', 'binance',content1,start_date,end_date)
+    # t_test_vader('ethereum', 'cryptocurrency')
+    # t_test_vader('ethereum', 'solana')
+    # t_test_vader('ethereum', 'binance')
+    # t_test_vader('cryptocurrency', 'solana')
+    # t_test_vader('cryptocurrency', 'binance')
+    # t_test_vader('solana', 'binance')
+    t_test_trans('bitcoin', 'cryptocurrency',content1,start_date,end_date)
 
 
 '''

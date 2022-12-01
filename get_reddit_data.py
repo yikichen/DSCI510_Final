@@ -41,8 +41,10 @@ def get_249_title(url,subreddit,created_time):
                 ftx_results.append(tuple)
         df1 = pd.DataFrame(title_ls).dropna()
         df2 = pd.DataFrame(ftx_results).dropna()
-        df1.to_csv(subreddit+'_all_titles.csv', mode='a', encoding='utf-8', index=False)
-        df2.to_csv(subreddit+'_FTX_titles.csv', mode='a', encoding='utf-8', index=False)
+        path1 = str('./data/reddit_data') + '/' + str(subreddit) + '_all_titles.csv'
+        path2 = str('./data/reddit_data') + '/' + str(subreddit) + '_FTX_titles.csv'
+        df1.to_csv(path1, mode='a', encoding='utf-8', index=False)
+        df2.to_csv(path2, mode='a', encoding='utf-8', index=False)
     except:
         pass
     return 
@@ -76,40 +78,42 @@ def get_data(created_time,subreddit,end_date):
     while int(created_time[-1]) < int(end_date):
         get_249_title(renew_url_with_time(created_time[-1],subreddit),subreddit,created_time)
         print(created_time[-1])
+    path1 = str('./data/reddit_data') + '/' + str(subreddit) + '_FTX_titles.csv'
+    path2 = str('./data/reddit_data') + '/' + str(subreddit) + '_all_titles.csv'
     df1 = pd.read_csv(subreddit+'_FTX_titles.csv',header=None, names=['Headlines','Time'])
     df1 = df1[df1['Headlines'] != '0'].dropna()
-    df1.to_csv(subreddit+'_FTX_titles.csv', mode='w', encoding='utf-8', index=False)
+    df1.to_csv(path1, mode='w', encoding='utf-8', index=False)
     df2 = pd.read_csv(subreddit+'_all_titles.csv',header=None, names=['Headlines','Time'])
     df2 = df2[df2['Headlines'] != '0'].dropna()
-    df2.to_csv(subreddit+'_all_titles.csv', mode='w', encoding='utf-8', index=False)
+    df2.to_csv(path2, mode='w', encoding='utf-8', index=False)
     return 
 
 
 if __name__ == '__main__':
     '''
     created_time_bitcoin = ['1668146400'] #the time epoch of Nov 11 2022
-    '''
-    created_time_1 = [int(dt.datetime(2022, 10, 10).timestamp())]
-    subreddit_1 = 'bitcoin'
-    end_date_1 = dt.datetime(2022, 11, 23).timestamp()
-    get_data(created_time_1,subreddit_1,end_date_1)
+    # '''
+    # created_time_1 = [int(dt.datetime(2022, 10, 10).timestamp())]
+    # subreddit_1 = 'bitcoin'
+    # end_date_1 = dt.datetime(2022, 11, 23).timestamp()
+    # get_data(created_time_1,subreddit_1,end_date_1)
 
-    created_time_2 = [int(dt.datetime(2022, 10, 10).timestamp())]
-    subreddit_2 = 'cryptocurrency'
-    end_date_2 = dt.datetime(2022, 11, 23).timestamp()
-    get_data(created_time_2,subreddit_2,end_date_2)
+    # created_time_2 = [int(dt.datetime(2022, 10, 10).timestamp())]
+    # subreddit_2 = 'cryptocurrency'
+    # end_date_2 = dt.datetime(2022, 11, 23).timestamp()
+    # get_data(created_time_2,subreddit_2,end_date_2)
 
-    created_time_3 = [int(dt.datetime(2022, 10, 10).timestamp())]
-    subreddit_3 = 'ethereum'
-    end_date_3 = dt.datetime(2022, 11, 23).timestamp()
-    get_data(created_time_3,subreddit_3,end_date_3)
+    # created_time_3 = [int(dt.datetime(2022, 10, 10).timestamp())]
+    # subreddit_3 = 'ethereum'
+    # end_date_3 = dt.datetime(2022, 11, 23).timestamp()
+    # get_data(created_time_3,subreddit_3,end_date_3)
     
     created_time_4 = [int(dt.datetime(2022, 10, 10).timestamp())]
     subreddit_4 = 'solana'
     end_date_4 = dt.datetime(2022, 11, 23).timestamp()
     get_data(created_time_4,subreddit_4,end_date_4)
 
-    created_time_5 = [int(dt.datetime(2022, 10, 10).timestamp())]
-    subreddit_5 = 'binance'
-    end_date_5 = dt.datetime(2022, 11, 23).timestamp()
-    get_data(created_time_5,subreddit_5,end_date_5)
+    # created_time_5 = [int(dt.datetime(2022, 10, 10).timestamp())]
+    # subreddit_5 = 'binance'
+    # end_date_5 = dt.datetime(2022, 11, 23).timestamp()
+    # get_data(created_time_5,subreddit_5,end_date_5)

@@ -17,8 +17,10 @@ def correlation(ticker, subreddit,content,start_date,end_date):
     Returns:
         correlation result
     ''' 
-    df1 = pd.read_csv(ticker + '_'+ 'price.csv',header=0)
-    df2 = pd.read_csv(subreddit + '_'+ content + 'trans_sentiment.csv',header=0)
+    path1 = str('./data/price_data') + '/' + str(ticker) + '_price.csv'
+    path2 = str('./data/senti_analysis/transformer_sentiment') + '/' + str(subreddit) + '_' + str(content) +'trans_sentiment.csv'
+    df1 = pd.read_csv(path1,header=0)
+    df2 = pd.read_csv(path2,header=0)
     df1 = df1[df1['timestamp'] >= start_date]
     df1 = df1[df1['timestamp'] <= end_date]
     df2 = df2[df2['time'] >= start_date]
@@ -50,7 +52,7 @@ def correlation(ticker, subreddit,content,start_date,end_date):
     print(linear_regressor.coef_)
     plt.scatter(x, y)
     plt.plot(x, Y_pred, color='red')
-    plt.show()
+    plt.savefig('./visualization/'+subreddit +'_'+ content+ '_linear_regression.pdf')
 
     # df_merge.plot(x='close', y='label', style='o')
     # linear_regressor = LinearRegression()
@@ -115,7 +117,7 @@ def get_visualization(ticker, subreddit,content,start_date,end_date):
 if __name__ == '__main__':
     start_date = dt.datetime(2022, 11, 11).timestamp()
     end_date = dt.datetime(2022, 11, 19).timestamp()
-    # correlation('BTC', 'bitcoin','FTX',start_date,end_date)
+    correlation('BTC', 'bitcoin','FTX',start_date,end_date)
     # correlation('BTC', 'cryptocurrency','all',start_date,end_date)
     # correlation_visualization('BTC', 'bitcoin','FTX',start_date,end_date)
-    get_visualization('BTC', 'cryptocurrency','all',start_date,end_date)
+    # get_visualization('BTC', 'cryptocurrency','all',start_date,end_date)
