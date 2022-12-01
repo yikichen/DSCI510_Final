@@ -9,6 +9,9 @@ import datetime as dt
 This script is to get the headlines from reddit
 customize the subreddit name, start date and end date
 then run the script
+
+git repo:
+https://github.com/yikichen/DSCI510_Final
 '''
 
 

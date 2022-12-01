@@ -67,11 +67,12 @@ def get_price_data(ticket):
     plt.tick_params(axis='both', labelsize=15)
 
     # Show the plot
-    plt.show()
+    # plt.show()
 
 if __name__ == '__main__':
-    get_price_data('BTC')
-    # get_price_data('ETH')
-    # get_price_data('SOL')
-    # get_price_data('BNB')
+    # get_price_data('BTC')
+    get_price_data('ETH')
+    get_price_data('SOL')
+    get_price_data('BNB')
+    get_price_data('FTT')
     # get_price_data('ADA')
