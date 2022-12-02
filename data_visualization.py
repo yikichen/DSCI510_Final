@@ -13,16 +13,17 @@ def visualize_sentiment(subreddit,content):
     Returns:
         A plotly graph with the sentiment of the post
     '''
-    df = pd.read_csv(subreddit +'_' + content + '_sentiment.csv',header=0)
+    path = './data/senti_analysis/nltk_vader/' + subreddit + '_' + content + '_sentiment.csv'
+    df = pd.read_csv(path,header=0)
     df.label.value_counts(normalize=True) * 100
     fig, ax = plt.subplots(figsize=(8, 8))
     counts = df.label.value_counts(normalize=True) * 100
 
     sns.barplot(x=counts.index, y=counts, ax=ax)
-    ax.set_title(subreddit.capitalize() + ' Sentiment')
+    ax.set_title(subreddit.capitalize() + ' ' + content +' Sentiment')
     ax.set_xticklabels(['Negative', 'Neutral', 'Positive'])
     ax.set_ylabel("Percentage")
-    plt.savefig(subreddit + '_sentiment.pdf')
+    plt.savefig('./visualization/'+subreddit +'_' + content + '_bar_sentiment.pdf')
 
     # plt.style.use('ggplot')
     # fig, axs = plt.subplots(1, 3, figsize=(12, 3))
@@ -50,7 +51,8 @@ def visualize_sentiment_trans(subreddit,content):
     Returns:
         A plotly graph with the sentiment of the post
     '''
-    df = pd.read_csv(subreddit +'_' + content + 'trans_sentiment.csv',header=0)
+    path = './data/senti_analysis/transformer_sentiment/' + subreddit + '_' + content + 'trans_sentiment.csv'
+    df = pd.read_csv(path,header=0)
     df.label.value_counts(normalize=True) * 100
     fig, ax = plt.subplots(figsize=(8, 8))
     counts = df.label.value_counts(normalize=True) * 100
@@ -62,10 +64,10 @@ def visualize_sentiment_trans(subreddit,content):
     ax.legend()
 
     # sns.barplot(x=counts.index, y=counts, ax=ax)
-    ax.set_title(subreddit.capitalize() + content +' Reddit Headlines Sentiment Analysis', fontsize=20, fontweight='bold', pad=20)
-    # ax.set_xticklabels(['Negative', 'Positive'])
+    ax.set_title(subreddit.capitalize() + ' ' + content +' Reddit Headlines Sentiment Analysis', fontsize=20, fontweight='bold', pad=20)
+    # ax.set_xticklabels(['Negative', 'Neutral', 'Positive'])
     # ax.set_ylabel("Percentage")
-    plt.savefig(subreddit +'_'+ content+ '_trans_sentiment.pdf')
+    plt.savefig('./visualization/'+subreddit + '_'+content + '_trans_bar_sentiment.pdf')
 
 if __name__ == '__main__':
     content1 = 'FTX'

@@ -92,28 +92,28 @@ def get_data(created_time,subreddit,end_date):
 if __name__ == '__main__':
     '''
     created_time_bitcoin = ['1668146400'] #the time epoch of Nov 11 2022
-    # '''
-    # created_time_1 = [int(dt.datetime(2022, 10, 10).timestamp())]
-    # subreddit_1 = 'bitcoin'
-    # end_date_1 = dt.datetime(2022, 11, 23).timestamp()
-    # get_data(created_time_1,subreddit_1,end_date_1)
+    '''
+    created_time_1 = [int(dt.datetime(2022, 10, 10).timestamp())]
+    subreddit_1 = 'bitcoin'
+    end_date_1 = dt.datetime(2022, 11, 23).timestamp()
+    get_data(created_time_1,subreddit_1,end_date_1)
 
-    # created_time_2 = [int(dt.datetime(2022, 10, 10).timestamp())]
-    # subreddit_2 = 'cryptocurrency'
-    # end_date_2 = dt.datetime(2022, 11, 23).timestamp()
-    # get_data(created_time_2,subreddit_2,end_date_2)
+    created_time_2 = [int(dt.datetime(2022, 10, 10).timestamp())]
+    subreddit_2 = 'cryptocurrency'
+    end_date_2 = dt.datetime(2022, 11, 23).timestamp()
+    get_data(created_time_2,subreddit_2,end_date_2)
 
-    # created_time_3 = [int(dt.datetime(2022, 10, 10).timestamp())]
-    # subreddit_3 = 'ethereum'
-    # end_date_3 = dt.datetime(2022, 11, 23).timestamp()
-    # get_data(created_time_3,subreddit_3,end_date_3)
+    created_time_3 = [int(dt.datetime(2022, 10, 10).timestamp())]
+    subreddit_3 = 'ethereum'
+    end_date_3 = dt.datetime(2022, 11, 23).timestamp()
+    get_data(created_time_3,subreddit_3,end_date_3)
     
     created_time_4 = [int(dt.datetime(2022, 10, 10).timestamp())]
     subreddit_4 = 'solana'
     end_date_4 = dt.datetime(2022, 11, 23).timestamp()
     get_data(created_time_4,subreddit_4,end_date_4)
 
-    # created_time_5 = [int(dt.datetime(2022, 10, 10).timestamp())]
-    # subreddit_5 = 'binance'
-    # end_date_5 = dt.datetime(2022, 11, 23).timestamp()
-    # get_data(created_time_5,subreddit_5,end_date_5)
+    created_time_5 = [int(dt.datetime(2022, 10, 10).timestamp())]
+    subreddit_5 = 'binance'
+    end_date_5 = dt.datetime(2022, 11, 23).timestamp()
+    get_data(created_time_5,subreddit_5,end_date_5)

@@ -30,21 +30,20 @@ def correlation(ticker, subreddit,content,start_date,end_date):
     df2 = df2.groupby('timestamp').mean()
     df_merge = df1.merge(df2, on='timestamp')
     # print(df_merge)
-
-
-
-    x = df_merge['close']
-    y = df_merge['label']
-    z = df_merge['compound']
+ 
+    x = df_merge['close'] 
+    y = df_merge['compound'] 
+    # z = df_merge['compound']
+    
 
     print('correlation for ' + ticker + ' and ' + subreddit + ' on ' + content + ' sentiment')
     print('from ' + dt.datetime.fromtimestamp(start_date).strftime('%Y-%m-%d') + ' to ' + dt.datetime.fromtimestamp(end_date).strftime('%Y-%m-%d'))
-    print(np.corrcoef(x, y)[0,1])
+    print(np.corrcoef(y,x)[0,1])
 
     #linear regression
     linear_regressor = LinearRegression()  # create object for the class
     x = x.values.reshape(-1, 1)
-    y = z.values.reshape(-1, 1)
+    y = y.values.reshape(-1, 1)
     linear_regressor.fit(x, y)  # perform linear regression
     Y_pred = linear_regressor.predict(x)  # make predictions
     print('linear regression for ' + ticker + ' and ' + subreddit + ' on ' + content + ' sentiment')
@@ -66,7 +65,6 @@ def linear_regression():
     return
 
 def correlation_visualization(ticker, subreddit,content,start_date,end_date):
-
     df1 = pd.read_csv(ticker + '_'+ 'price.csv',header=0)
     df2 = pd.read_csv(subreddit + '_'+ content + 'trans_sentiment.csv',header=0)
     df1 = df1[df1['timestamp'] >= start_date]
@@ -116,7 +114,7 @@ def get_visualization(ticker, subreddit,content,start_date,end_date):
 
 if __name__ == '__main__':
     start_date = dt.datetime(2022, 11, 11).timestamp()
-    end_date = dt.datetime(2022, 11, 19).timestamp()
+    end_date = dt.datetime(2022, 11, 23).timestamp()
     correlation('BTC', 'bitcoin','FTX',start_date,end_date)
     # correlation('BTC', 'cryptocurrency','all',start_date,end_date)
     # correlation_visualization('BTC', 'bitcoin','FTX',start_date,end_date)
