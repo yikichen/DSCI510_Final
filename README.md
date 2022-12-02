@@ -88,13 +88,13 @@ Results showed Pearson product-moment correlation coefficients R = 0.04, R^2 = 0
 ## Data Visualization
 1)	I used seaborn to visualize the frequency of sentiment scores of headlines in each forum. Bar chart was used to compare the frequency of sentiment labels in each forum. 
 
- ![alt text](https://github.com/yikichen/DSCI510_Final/blob/main/visualization/bitcoin_FTX_trans_bar_sentiment.pdf)
+ ![alt text](https://github.com/yikichen/DSCI510_Final/blob/main/visualization/rbitcoin.png)
 
- ![alt text](https://github.com/yikichen/DSCI510_Final/blob/main/visualization/cryptocurrency_FTX_trans_bar_sentiment.pdf)
+ ![alt text](https://github.com/yikichen/DSCI510_Final/blob/main/visualization/rcrypto.png)
 
  
- ![alt text](https://github.com/yikichen/DSCI510_Final/blob/main/visualization/bitcoin_sentiment.pdf)
- ![alt text](https://github.com/yikichen/DSCI510_Final/blob/main/visualization/cryptocurrency_sentiment.pdf)
+ ![alt text](https://github.com/yikichen/DSCI510_Final/blob/main/visualization/rbitcoinlabel.png)
+ ![alt text](https://github.com/yikichen/DSCI510_Final/blob/main/visualization/rcryptolabel.png)
 
 
 2)	BTC Price interactive: I used plotly to visualize the BTC price in an interactive chart. It is generated as a html and you can easily track the BTC price with the time, which is crucial for my project because the price fluctuates according to many incidents (eg. SBF/ CZ’s twitter thread).
