@@ -10,6 +10,16 @@ This repository is my DSCI510 Final Project. It contains the following files:
 - data_visualization.py: Python script to perform data visualization
 - bonus_visualization.py: Python script to perform bonus visualization
 
+# Project Description
+## Title: Sentiment Analysis on Reddit and its Correlation with Bitcoin Price
+In this project, I will compare community attitude on FTX collapse: comparison sentiment analysis on r/Cryptocurrency & r/ Bitcoin Reddit Forum. I will also compare the correlation between Bitcoin price and Reddit sentiment score.
+## Background
+In November 2022, FTX, one of the world’s largest cryptocurrency companies, announced that it would file for bankruptcy, with its CEO, Sam Bankman-Fried (SBF), stepping down in the wake of a trading scandal that has embroiled the firm in regulatory inquiries. While the media reported it as a fraud and criticized the cryptocurrency industry for its lack of transparency, the blockchain community itself disagreed on whether this was a disgrace for the crypto industry or a good thing, for it demonstrated the value of self-custody and decentralization, which is the opposite of how FTX was operated.
+
+Therefore, this study takes the members of blockchain communities, both in r/Cryptocurrency and r/ Bitcoin Reddit Forum, as objects and studies their attitude toward the collapse of FTX and its CEO SBF, which reveals the ideologies and heterogeneity among the cryptocurrency community. The hypothesis is that the attitude in r/ Bitcoin is more positive than in r/Cryptocurrency because Bitcoin holders are considered more consolidated on the idea of decentralization and have long been looking down on speculative crypto communities. FTX in Using quantitative methods, this study scrapes the headlines on the two forums since November 11th when SBF announced its filing for bankruptcy.
+
+
+
 # Dependencies
 
 - Python 3.8.8
@@ -21,7 +31,6 @@ Install the requirements necessary to run your project:
 ```
 pip install -r requirements.txt
 ```
-
 
 # Running the project
 
