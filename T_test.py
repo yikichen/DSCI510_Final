@@ -71,7 +71,7 @@ if __name__ == '__main__':
     start_date = dt.datetime(2022, 11, 11).timestamp()
     end_date = dt.datetime(2022, 11, 23).timestamp()
     # t_test_vader('bitcoin', 'ethereum',content1, start_date, end_date)
-    # t_test_trans('bitcoin', 'cryptocurrency',content1,start_date,end_date)
+    t_test_vader('bitcoin', 'cryptocurrency',content1,start_date,end_date)
     # t_test_vader('bitcoin', 'cryptocurrency',content2,start_date,end_date)
 
     # t_test_vader('bitcoin', 'solana',content1,start_date,end_date)
@@ -85,12 +85,3 @@ if __name__ == '__main__':
     t_test_trans('bitcoin', 'cryptocurrency',content1,start_date,end_date)
 
 
-'''
-
-results:
-11-11 to 11-18
-bitcoin vs cryptocurrency:
-t = 1.9491453502749059
-p = 0.05142120031101409
-
-'''

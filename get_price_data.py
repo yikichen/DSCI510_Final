@@ -71,9 +71,8 @@ def get_price_data(ticker):
     # plt.show()
 
 if __name__ == '__main__':
-    # get_price_data('BTC')
-    # get_price_data('ETH')
-    # get_price_data('SOL')
-    # get_price_data('BNB')
-    # get_price_data('FTT')
-    get_price_data('DOGE')
+    get_price_data('BTC')
+    get_price_data('ETH')
+    get_price_data('SOL')
+    get_price_data('BNB')
+    get_price_data('FTT')

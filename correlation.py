@@ -29,22 +29,33 @@ def correlation(ticker, subreddit,content,start_date,end_date):
     df2['timestamp'] = df2['timestamp'] //3600 * 3600
     df2 = df2.groupby('timestamp').mean()
     df_merge = df1.merge(df2, on='timestamp')
-    # print(df_merge)
  
     x = df_merge['close'] 
-    y = df_merge['compound'] 
-    # z = df_merge['compound']
-    
+    y = df_merge['compound']     
 
     print('correlation for ' + ticker + ' and ' + subreddit + ' on ' + content + ' sentiment')
     print('from ' + dt.datetime.fromtimestamp(start_date).strftime('%Y-%m-%d') + ' to ' + dt.datetime.fromtimestamp(end_date).strftime('%Y-%m-%d'))
     print(np.corrcoef(y,x)[0,1])
+    return
 
-    #linear regression
+def linear_regression(ticker, subreddit,content,start_date,end_date):
+    '''
+    This function is to do the linear regression analysis between the token price and its sentiment score
+    Linear regression is a linear approach to modelling the relationship between a scalar response and one or more explanatory variables.
+    Args:
+        ticker: the name of the ticker
+        subreddit: the name of the subreddit
+        content: the content of the post, FTX or all
+        start_date: the start date of the post
+        end_date: the start date of the post
+    Returns:    
+        linear regression result
+    '''
     linear_regressor = LinearRegression()  # create object for the class
     x = x.values.reshape(-1, 1)
     y = y.values.reshape(-1, 1)
-    linear_regressor.fit(x, y)  # perform linear regression
+    reg = linear_regressor.fit(x, y)  # perform linear regression
+    print (reg.score(x, y))
     Y_pred = linear_regressor.predict(x)  # make predictions
     print('linear regression for ' + ticker + ' and ' + subreddit + ' on ' + content + ' sentiment')
     print('from ' + dt.datetime.fromtimestamp(start_date).strftime('%Y-%m-%d') + ' to ' + dt.datetime.fromtimestamp(end_date).strftime('%Y-%m-%d'))
@@ -58,11 +69,10 @@ def correlation(ticker, subreddit,content,start_date,end_date):
     # linear_regressor.fit(x.values.reshape(-1,1), y.values.reshape(-1,1))
     # Y_pred = linear_regressor.predict(x.values.reshape(-1,1))
     # plt.plot(x, Y_pred, color='red')
-    # print(linear_regressor.coef_)
-
-def linear_regression():
-    linear_regressor = LinearRegression()  # create object for the class
+    print(reg.coef_)
     return
+
+
 
 def correlation_visualization(ticker, subreddit,content,start_date,end_date):
     df1 = pd.read_csv(ticker + '_'+ 'price.csv',header=0)
