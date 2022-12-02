@@ -70,25 +70,25 @@ def transformer_sentiment_analysis(subreddit, content):
 if __name__ == '__main__':
     content1 = 'FTX'
     content2 = 'all'
-    # sentiment_analysis('bitcoin',content1)
-    # sentiment_analysis('ethereum',content1)
-    # sentiment_analysis('cryptocurrency',content1)
-    # sentiment_analysis('solana',content1)
-    # sentiment_analysis('binance',content1)
+    sentiment_analysis('bitcoin',content1)
+    sentiment_analysis('ethereum',content1)
+    sentiment_analysis('cryptocurrency',content1)
+    sentiment_analysis('solana',content1)
+    sentiment_analysis('binance',content1)
 
-    # sentiment_analysis('bitcoin',content2)
-    # sentiment_analysis('ethereum',content2)
-    # sentiment_analysis('cryptocurrency',content2)
-    # sentiment_analysis('solana',content2)
-    # sentiment_analysis('binance',content2)
-    # transformer_sentiment_analysis('bitcoin',content1)
-    # transformer_sentiment_analysis('ethereum',content1)
-    # transformer_sentiment_analysis('cryptocurrency',content1)
-    # transformer_sentiment_analysis('solana',content1)
+    sentiment_analysis('bitcoin',content2)
+    sentiment_analysis('ethereum',content2)
+    sentiment_analysis('cryptocurrency',content2)
+    sentiment_analysis('solana',content2)
+    sentiment_analysis('binance',content2)
+    transformer_sentiment_analysis('bitcoin',content1)
+    transformer_sentiment_analysis('ethereum',content1)
+    transformer_sentiment_analysis('cryptocurrency',content1)
+    transformer_sentiment_analysis('solana',content1)
     transformer_sentiment_analysis('binance',content1)
 
-    # transformer_sentiment_analysis('bitcoin',content2)
-    # transformer_sentiment_analysis('ethereum',content2)
-    # transformer_sentiment_analysis('cryptocurrency',content2)
+    transformer_sentiment_analysis('bitcoin',content2)
+    transformer_sentiment_analysis('ethereum',content2)
+    transformer_sentiment_analysis('cryptocurrency',content2)
 
 
