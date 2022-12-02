@@ -22,6 +22,7 @@ def visualize_sentiment(subreddit,content):
     sns.barplot(x=counts.index, y=counts, ax=ax)
     ax.set_title(subreddit.capitalize() + ' ' + content +' Sentiment')
     ax.set_xticklabels(['Negative', 'Neutral', 'Positive'])
+    ax.set_xlabel("Sentiment")
     ax.set_ylabel("Percentage")
     plt.savefig('./visualization/'+subreddit +'_' + content + '_bar_sentiment.pdf')
 
@@ -61,6 +62,8 @@ def visualize_sentiment_trans(subreddit,content):
     
     fig, ax = plt.subplots(1, 1, figsize=(20, 10))
     ax.hist(df['compound'], bins=100, label=f"sentiment frequency", alpha=0.5)
+    ax.set_xlabel("Sentiment Score")
+    ax.set_ylabel("Frequency")
     ax.legend()
 
     # sns.barplot(x=counts.index, y=counts, ax=ax)
