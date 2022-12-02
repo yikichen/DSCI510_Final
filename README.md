@@ -18,7 +18,9 @@ In November 2022, FTX, one of the world’s largest cryptocurrency companies, an
 
 Therefore, this study takes the members of blockchain communities, both in r/Cryptocurrency and r/ Bitcoin Reddit Forum, as objects and studies their attitude toward the collapse of FTX and its CEO SBF, which reveals the ideologies and heterogeneity among the cryptocurrency community. The hypothesis is that the attitude in r/ Bitcoin is more positive than in r/Cryptocurrency because Bitcoin holders are considered more consolidated on the idea of decentralization and have long been looking down on speculative crypto communities. FTX in Using quantitative methods, this study scrapes the headlines on the two forums since November 11th when SBF announced its filing for bankruptcy.
 
+Meanwhile, in order to understand the relation of community sentiment with the price of cryptocurrency, I will also compare the correlation between Bitcoin price and r/bitcoin Reddit sentiment score.
 
+This study will be helpful for the cryptocurrency industry to understand the community sentiment and the correlation between community sentiment and cryptocurrency price. It will also be helpful for the cryptocurrency industry to understand the heterogeneity among the cryptocurrency community. Especially, this study will contribute to the research on the ideology and history of the cryptocurrency community.
 
 # Dependencies
 
